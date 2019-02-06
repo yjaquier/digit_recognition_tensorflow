@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Tensorflow</title>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.2/dist/tf.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+		<script src="index.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<style>
+			.chart { width: 900px; margin: auto; }
+		</style>	
+  </head>
+  <body>
+		<div id="div01" class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<canvas id="canvas01" title="Draw a number" width="280" height="280" style="border:2px solid black; background-color: #D3D3D3;"></canvas>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-auto">
+					<form class="form-inline">
+						<button type="button" class="btn btn-primary mx-2" onclick="javascript:clearArea();return false;">Clear Area</button>
+						<button type="button" class="btn btn-primary mx-2" onclick="javascript:predict();return false;">Predict</button>
+						<label for="width">Line width : </label>
+						<select class="custom-select mx-2" id="width">
+							<option value="1">1</option>
+							<option value="3">3</option>
+							<option value="5">5</option>
+							<option value="7">7</option>
+							<option value="9">9</option>
+							<option value="11">11</option>
+							<option value="13">13</option>
+							<option value="15" selected="selected">15</option>
+						</select>
+						<label>Line color : </label>
+						<select class="custom-select mx-2" id="color">
+							<option value="Black">Black</option>
+							<option value="DeepSkyBlue">DeepSkyBlue</option>
+							<option value="Crimson" selected="selected">Crimson</option>
+							<option value="DarkOliveGreen">DarkOliveGreen</option>
+							<option value="Gold">Gold</option>
+							<option value="Silver">Silver</option>
+						</select>
+					</form>
+				</div>
+			</div>
+			<div class="row justify-content-md-center my-2">
+				<div id="chart1" title="TensorFlow prediction chart" class="chart"></div>
+			</div>
+		</div>
+	</body>
+</html>
