@@ -34,7 +34,8 @@ var options1 = {
   //markers: { colors: '#000000' }, // Markers
 	dataLabels: { enabled: false },
   series: [{ name: 'Prediction probability', data: [] }],
-	xaxis: { categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }
+  xaxis: { categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
+  yaxis: { show: false }
 }
 
 window.addEventListener("load", function(event) {	
