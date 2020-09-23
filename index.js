@@ -25,14 +25,14 @@ var options1 = {
     background: '#D3D3D3',
     zoom: {
       enabled: true,
-      type: 'xy',
+      type: 'xy'
     }
   },
   //legend: { show: true, position: 'right' },
   tooltip: { theme: 'dark' },
   colors: ['#FF8C00'], // series color
   //markers: { colors: '#000000' }, // Markers
-	dataLabels: { enabled: false, style: { colors: '#000000' } },
+	dataLabels: { enabled: false },
   series: [{ name: 'Prediction probability', data: [] }],
 	xaxis: { categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }
 }
@@ -63,9 +63,9 @@ window.addEventListener("load", function(event) {
 	});
 
 	// Load TensorFlow pre-trained model
-	run_tensorflow();
+  run_tensorflow();
 
-	chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
+  chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
   chart1.render();
 });
 
@@ -92,7 +92,7 @@ function clearArea() {
 }
 
 async function loadModel() {
-	this.model = await tf.loadModel('./assets/model.json');
+	this.model = await tf.loadLayersModel('./assets/model.json');
 	console.log('TensorFlow model loaded !');
 }
 
@@ -103,7 +103,7 @@ function run_tensorflow() {
 async function predict2(imageData) {
   await tf.tidy(() => {
     // Convert the canvas pixels to a Tensor of the matching shape
-    let img = tf.fromPixels(imageData, 1);
+    let img = tf.browser.fromPixels(imageData, 1);
     img = img.reshape([1, 28, 28, 1]);
     img = tf.cast(img, 'float32');
 
